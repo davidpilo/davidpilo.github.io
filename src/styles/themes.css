@@ -1,0 +1,99 @@
+/* Moonfly — dark terminal color theme
+ * Source: https://github.com/bluz71/vim-moonfly-colors
+ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Base */
+  --moonfly-black: #080808;
+  --moonfly-white: #c6c6c6;
+  --moonfly-bg: #080808;
+
+  /* Greys */
+  --moonfly-grey0: #323437;
+  --moonfly-grey1: #373c4d;
+  --moonfly-grey89: #e4e4e4;
+  --moonfly-grey70: #b2b2b2;
+  --moonfly-grey62: #9e9e9e;
+  --moonfly-grey58: #949494;
+  --moonfly-grey50: #808080;
+  --moonfly-grey39: #626262;
+  --moonfly-grey35: #585858;
+  --moonfly-grey30: #4e4e4e;
+  --moonfly-grey27: #444444;
+  --moonfly-grey23: #3a3a3a;
+  --moonfly-grey18: #2e2e2e;
+  --moonfly-grey16: #292929;
+  --moonfly-grey15: #262626;
+  --moonfly-grey13: #212121;
+  --moonfly-grey11: #1c1c1c;
+  --moonfly-grey7: #121212;
+
+  /* Core */
+  --moonfly-red: #ff5d5d;
+  --moonfly-crimson: #ff5189;
+  --moonfly-cranberry: #e65e72;
+  --moonfly-coral: #f09479;
+  --moonfly-cinnamon: #e9958e;
+  --moonfly-orchid: #e196a2;
+  --moonfly-orange: #de935f;
+  --moonfly-yellow: #e3c78a;
+  --moonfly-khaki: #c6c684;
+  --moonfly-lime: #85dc85;
+  --moonfly-green: #8cc85f;
+  --moonfly-emerald: #36c692;
+  --moonfly-turquoise: #79dac8;
+  --moonfly-sky: #74b2ff;
+  --moonfly-blue: #80a0ff;
+  --moonfly-lavender: #adadf3;
+  --moonfly-violet: #cf87e8;
+  --moonfly-purple: #ae81ff;
+
+  /* Extra */
+  --moonfly-mineral: #314940;
+  --moonfly-bay: #4d5d8d;
+  --moonfly-slate: #748999;
+  --moonfly-haze: #88a2b7;
+
+  /* Semantic */
+  --body-bg: var(--moonfly-bg);
+  --body-fg: var(--moonfly-grey50);
+}
+
+/* Light Owl — light terminal color theme */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Base */
+  --light-owl-bg: #F6F6F6;
+  --light-owl-fg: #403F53;
+  --light-owl-cursor: #90A7B2;
+  --light-owl-selection: #E0E0E0;
+
+  /* Palette — normal */
+  --light-owl-black: #403F53;
+  --light-owl-red: #DE3D3B;
+  --light-owl-green: #08916A;
+  --light-owl-yellow: #E0AF02;
+  --light-owl-blue: #288ED7;
+  --light-owl-purple: #D6438A;
+  --light-owl-cyan: #2AA298;
+  --light-owl-white: #F0F0F0;
+
+  /* Palette — bright */
+  --light-owl-bright-black: #403F53;
+  --light-owl-bright-red: #DE3D3B;
+  --light-owl-bright-green: #08916A;
+  --light-owl-bright-yellow: #DAA011;
+  --light-owl-bright-blue: #288ED7;
+  --light-owl-bright-purple: #D6438A;
+  --light-owl-bright-cyan: #2AA298;
+  --light-owl-bright-white: #979797;
+
+  /* Semantic */
+  --body-bg: var(--light-owl-bg);
+  --body-fg: var(--light-owl-fg);
+}

@@ -1,0 +1,121 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Section from '../components/Section.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: 'PVTS — Visual Interpreter',
+    description: 'Ever wondered what the Quicksort Algorithm looks like? Visualize lists, pointers and function calls in your code. PVTS is a visual interpreter for the Scheme functional programming language.',
+    href: 'https://davidpilo.com/pvts',
+    repo: 'https://github.com/davidpilo/pvts',
+  },
+];
+
+const articles = [
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    date: 'July 12, 2026',
+    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
+    href: '#',
+  },
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    date: 'June 28, 2026',
+    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
+    href: '#',
+  },
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    date: 'May 14, 2026',
+    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
+    href: '#',
+  },
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    date: 'April 3, 2026',
+    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
+    href: '#',
+  },
+];
+---
+
+<MainLayout>
+  <Header />
+  <div class="page-body">
+    <Sidebar />
+    <main>
+      <Section title="bio" id="bio">
+        <p>
+          David Pilo is the CEO and founder of Walcu, a leading ILM and CRM platform for 
+          auto dealers. He holds bachelor's degrees in Mathematics and Computer Science 
+          from Rollins College and a master's degree in Operations Research from Cornell 
+          University.
+        </p>
+        <p>
+          David began his career at Microsoft as a Program Manager on the Excel team, 
+          where he helped make Business Intelligence tools accessible to a broad audience 
+          and was part of the team that delivered Excel as a web application in Office 365.
+        </p>
+        <p>
+          These combined experiences in technology, data, and digital transformation inspired 
+          him to found Walcu, with the mission of delivering a world-class CRM built for the 
+          automotive industry — combining the strength of global platforms with the precision 
+          and fit of a vertical solution.
+        </p>
+      </Section>
+
+      <Section title="last_updates" href="/posts" id="posts">
+        <div class="articles-grid">
+          {articles.map(article => (
+            <ArticleCard {...article} />
+          ))}
+        </div>
+      </Section>
+
+      <Section title="projects" href="/projects" id="projects">
+        {projects.map(project => (
+          <ProjectCard {...project} />
+        ))}
+      </Section>
+    </main>
+  </div>
+</MainLayout>
+
+<style>
+  .page-body {
+    display: flex;
+    margin: 0 auto;
+    max-width: 72rem;
+  }
+
+  main {
+    border-left: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2.5rem;
+    padding: 2rem 2.5rem;
+  }
+
+  main p {
+    border-color: var(--section-line);
+    border-style: solid;
+    border-width: 0px 1px;
+    color: var(--body-fg);
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.75;
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  .articles-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+</style>

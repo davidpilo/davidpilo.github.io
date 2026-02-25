@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { icon, iconColor, href, label } = Astro.props;
+---
+
+<a class="sidebar-link" href={href} rel="noopener noreferrer" target="_blank">
+  <Icon name={icon} width="16" height="16" style={`color: ${iconColor}`} />
+  <span class="link-label">{label}</span>
+  <span class="link-slash">&xrarr;</span>
+</a>
+
+<style>
+  .link-label {
+    flex: 1;
+  }
+
+  .link-slash {
+    color: var(--sidebar-slash-color);
+    display: inline-block;
+    transform: rotate(-45deg);
+  }
+
+  .sidebar-link {
+    align-items: center;
+    color: var(--body-fg);
+    display: inline-flex;
+    gap: 0.6rem;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .sidebar-link:hover {
+    opacity: 0.7;
+  }
+</style>

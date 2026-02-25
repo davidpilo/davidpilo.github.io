@@ -1,0 +1,32 @@
+---
+import 'normalize.css';
+import '@fontsource-variable/jetbrains-mono';
+
+import '../styles/themes.css';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+    <!--
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    -->
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>David Pilo</title>
+	</head>
+	<body>
+    <slot />
+	</body>
+</html>
+
+<style is:global>
+  body {
+    background-color: var(--body-bg);
+    color: var(--body-fg);
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+  }
+</style>

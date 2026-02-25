@@ -1,0 +1,106 @@
+---
+interface Props {
+  date: string;
+  excerpt: string;
+  href: string;
+  title: string;
+}
+
+const { date, excerpt, href, title } = Astro.props;
+---
+
+<article class="article-card">
+  <a class="card-title" href={href}>{title}</a>
+  <p class="card-date">
+    <span class="card-date-label">date:</span>
+    <span class="card-date-value">{date}</span>
+  </p>
+  <p class="card-excerpt">{excerpt}</p>
+  <a class="card-read-more" href={href}>
+    <span class="card-line-num">:0</span> Read more ↗
+  </a>
+</article>
+
+<style is:global>
+  :root,
+  [data-theme="dark"] {
+    --card-bg: var(--moonfly-grey11);
+    --card-border: var(--moonfly-grey18);
+    --card-title: var(--moonfly-sky);
+    --card-date-label: var(--moonfly-grey39);
+    --card-date-value: var(--moonfly-yellow);
+    --card-excerpt: var(--moonfly-grey70);
+    --card-line-num: var(--moonfly-grey39);
+    --card-link: var(--moonfly-turquoise);
+  }
+
+  [data-theme="light"] {
+    --card-bg: var(--light-owl-selection);
+    --card-border: #d0d0d0;
+    --card-title: var(--light-owl-blue);
+    --card-date-label: var(--light-owl-bright-white);
+    --card-date-value: var(--light-owl-yellow);
+    --card-excerpt: var(--light-owl-fg);
+    --card-line-num: var(--light-owl-bright-white);
+    --card-link: var(--light-owl-cyan);
+  }
+</style>
+
+<style>
+  .article-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .card-title {
+    color: var(--card-title);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .card-title:hover {
+    text-decoration: underline;
+  }
+
+  .card-date {
+    display: flex;
+    gap: 0.4rem;
+    margin: 0;
+  }
+
+  .card-date-label {
+    color: var(--card-date-label);
+  }
+
+  .card-date-value {
+    color: var(--card-date-value);
+  }
+
+  .card-excerpt {
+    color: var(--card-excerpt);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .card-read-more {
+    color: var(--card-link);
+    margin-top: auto;
+    text-decoration: none;
+  }
+
+  .card-read-more:hover {
+    text-decoration: underline;
+  }
+
+  .card-line-num {
+    color: var(--card-line-num);
+  }
+</style>

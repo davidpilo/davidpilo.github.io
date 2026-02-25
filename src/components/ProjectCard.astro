@@ -1,0 +1,94 @@
+---
+interface Props {
+  description: string;
+  href: string;
+  repo: string;
+  title: string;
+}
+
+const { description, href, repo, title } = Astro.props;
+---
+
+<article class="project-card">
+  <a class="project-title" href={href}>{title}</a>
+  <p class="project-description">{description}</p>
+  <div class="project-links">
+    <a class="project-link" href={href}>
+      <span class="link-prefix">:</span>open ↗
+    </a>
+    <a class="project-link" href={repo}>
+      <span class="link-prefix">:</span>repo ↗
+    </a>
+  </div>
+</article>
+
+<style is:global>
+  :root,
+  [data-theme="dark"] {
+    --project-card-bg: var(--moonfly-grey11);
+    --project-card-border: var(--moonfly-grey18);
+    --project-title: var(--moonfly-sky);
+    --project-description: var(--moonfly-grey70);
+    --project-link: var(--moonfly-turquoise);
+    --project-link-prefix: var(--moonfly-grey39);
+  }
+
+  [data-theme="light"] {
+    --project-card-bg: var(--light-owl-selection);
+    --project-card-border: #d0d0d0;
+    --project-title: var(--light-owl-blue);
+    --project-description: var(--light-owl-fg);
+    --project-link: var(--light-owl-cyan);
+    --project-link-prefix: var(--light-owl-bright-white);
+  }
+</style>
+
+<style>
+  .project-card {
+    background-color: var(--project-card-bg);
+    border: 1px solid var(--project-card-border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    gap: 0.6rem;
+    padding: 1rem;
+  }
+
+  .project-title {
+    color: var(--project-title);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .project-title:hover {
+    text-decoration: underline;
+  }
+
+  .project-description {
+    color: var(--project-description);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .project-link {
+    color: var(--project-link);
+    text-decoration: none;
+  }
+
+  .project-link:hover {
+    text-decoration: underline;
+  }
+
+  .link-prefix {
+    color: var(--project-link-prefix);
+  }
+</style>

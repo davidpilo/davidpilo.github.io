@@ -1,0 +1,26 @@
+---
+---
+
+<div id="vim-gutter">
+</div>
+
+<script>
+  function buildGutter(element, lines, selectedLine = 1) {
+    element.innerHTML = '';
+
+    const children = '';
+
+    for (let i = 1; i <= lines; i++) {
+      children += `
+        <div class="gutter-item">
+        </div>
+      `
+    }        
+  }
+    
+  const LINES = 30;
+  const vimGutter = document.querySelector('#vim-gutter');
+
+  if (vimGutter) {
+  }
+</script>

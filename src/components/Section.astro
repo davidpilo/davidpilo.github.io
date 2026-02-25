@@ -1,0 +1,73 @@
+---
+const { title, href, id } = Astro.props;
+---
+
+<section class="section" id={id}>
+  <h2 class="section-heading">
+    <span class="section-hash">#</span>
+    {href
+      ? <a class="section-title" href={href}>{title} ↗</a>
+      : <span class="section-title">{title}</span>
+    }
+    <span class="section-line" aria-hidden="true"></span>
+  </h2>
+  <div class="section-content">
+    <slot />
+  </div>
+</section>
+
+<style is:global>
+  :root,
+  [data-theme="dark"] {
+    --section-hash: var(--moonfly-grey39);
+    --section-title: var(--moonfly-turquoise);
+    --section-line: var(--moonfly-grey18);
+    --section-bio-border: var(--moonfly-grey27);
+  }
+
+  [data-theme="light"] {
+    --section-hash: var(--light-owl-bright-white);
+    --section-title: var(--light-owl-cyan);
+    --section-line: var(--light-owl-selection);
+    --section-bio-border: var(--light-owl-selection);
+  }
+</style>
+
+<style>
+  .section {
+    display: flex;
+    flex-direction: column;
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+    gap: 1.25rem;
+  }
+
+  .section-heading {
+    align-items: center;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 400;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .section-hash {
+    color: var(--section-hash);
+  }
+
+  .section-title {
+    color: var(--section-title);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    border-top: 1px solid var(--section-line);
+    flex: 1;
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+</style>
