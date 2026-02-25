@@ -63,7 +63,7 @@
     themeToggle.classList.toggle('active', theme === 'light');
   }
 
-  const savedTheme = localStorage.getItem('theme') ?? 'dark';
+  const savedTheme = localStorage.getItem('theme') ?? 'light';
   applyTheme(savedTheme);
 
   themeToggle.addEventListener('click', () => {
@@ -129,27 +129,27 @@
   }
 
   [data-theme="light"] {
-    --header-bg: var(--light-owl-bg);
-    --header-border: var(--light-owl-selection);
-    --header-prompt-clock: var(--light-owl-blue);
-    --header-prompt-user: var(--light-owl-bright-white);
-    --header-prompt-branch: var(--light-owl-green);
-    --header-prompt-dirty: var(--light-owl-red);
-    --header-prompt-project: var(--light-owl-cyan);
-    --header-prompt-cursor: var(--light-owl-cursor);
-    --header-nav-color: var(--light-owl-fg);
-    --header-nav-hover: var(--light-owl-blue);
-    --header-hint-color: var(--light-owl-bright-white);
-    --header-kbd-bg: var(--light-owl-selection);
-    --header-kbd-border: #c8c8c8;
-    --header-kbd-color: var(--light-owl-yellow);
-    --header-btn-bg: var(--light-owl-selection);
-    --header-btn-border: #c8c8c8;
-    --header-btn-color: var(--light-owl-fg);
-    --header-btn-hover-bg: #d0d0d0;
-    --header-btn-hover-fg: var(--light-owl-fg);
-    --header-btn-active: var(--light-owl-blue);
-    --header-vim-btn-active: var(--light-owl-green);
+    --header-bg: var(--solarized-bg);
+    --header-border: var(--solarized-selection);
+    --header-prompt-clock: var(--solarized-blue);
+    --header-prompt-user: var(--solarized-base1);
+    --header-prompt-branch: var(--solarized-green);
+    --header-prompt-dirty: var(--solarized-red);
+    --header-prompt-project: var(--solarized-cyan);
+    --header-prompt-cursor: var(--solarized-base1);
+    --header-nav-color: var(--solarized-fg);
+    --header-nav-hover: var(--solarized-blue);
+    --header-hint-color: var(--solarized-base1);
+    --header-kbd-bg: var(--solarized-selection);
+    --header-kbd-border: var(--solarized-border);
+    --header-kbd-color: var(--solarized-yellow);
+    --header-btn-bg: var(--solarized-selection);
+    --header-btn-border: var(--solarized-border);
+    --header-btn-color: var(--solarized-fg);
+    --header-btn-hover-bg: var(--solarized-hover);
+    --header-btn-hover-fg: var(--solarized-fg);
+    --header-btn-active: var(--solarized-blue);
+    --header-vim-btn-active: var(--solarized-green);
   }
 </style>
 

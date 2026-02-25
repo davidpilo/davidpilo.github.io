@@ -6,6 +6,8 @@ import Section from '../components/Section.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
+const PAGE_BLOG = 'https://davidpilo.com/blog'
+
 const projects = [
   {
     title: 'PVTS — Visual Interpreter',
@@ -17,28 +19,28 @@ const projects = [
 
 const articles = [
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    date: 'July 12, 2026',
-    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
-    href: '#',
+    title: 'Can You Make It Uglier?',
+    date: 'February 5, 2026',
+    excerpt: '“Can you make it uglier?” That’s my favorite question to ask when a teammate presents a new design. Humans are wired to love beautiful...',
+    href: `${PAGE_BLOG}/post/can-you-make-it-uglier/`,
   },
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    date: 'June 28, 2026',
-    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
-    href: '#',
+    title: 'Our Head of Customer Success left last week. On her way out, she handed us a gift during the exit interview',
+    date: 'January 27, 2026',
+    excerpt: 'Our Head of Customer Success left last week. On her way out, she handed us a gift during the exit interview. She said, very calmly, that...',
+    href: `${PAGE_BLOG}/post/head-of-cs-left-last-week/`,
   },
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    date: 'May 14, 2026',
-    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
-    href: '#',
+    title: 'Fire the Managers. Promote Mentors',
+    date: 'January 22, 2026',
+    excerpt: 'When we were a dozen or so at Walcu, I knew that one day, if things went well, we’d grow and eventually need a hierarchy. I dreaded...',
+    href: `${PAGE_BLOG}/post/fire-managers-promote-mentors/`,
   },
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    date: 'April 3, 2026',
-    excerpt: 'Fusce eu dapibus felis. Nunc ac dui lectus. Mauris varius blandit magna, id aliquet nulla mattis at. Proin tristique risus magna...',
-    href: '#',
+    title: 'Six Years In, $8M ARR, Still No Business Plan',
+    date: 'January 15, 2026',
+    excerpt: 'Until Today. One thing that always struck me as outright wrong is to spend time on creating detailed business plans and financial...',
+    href: `${PAGE_BLOG}/post/no-business-plan/`,
   },
 ];
 ---

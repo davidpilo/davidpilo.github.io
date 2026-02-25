@@ -62,38 +62,31 @@
   --body-fg: var(--moonfly-grey50);
 }
 
-/* Light Owl — light terminal color theme */
+/* Solarized Light — http://ethanschoonover.com/solarized */
 
 [data-theme="light"] {
   color-scheme: light;
 
-  /* Base */
-  --light-owl-bg: #F6F6F6;
-  --light-owl-fg: #403F53;
-  --light-owl-cursor: #90A7B2;
-  --light-owl-selection: #E0E0E0;
+  /* Base tones (after light-mode rotation) */
+  --solarized-bg:        #fdf6e3;
+  --solarized-selection: #eee8d5;
+  --solarized-hover:     #dcd4bb;
+  --solarized-border:    #ccc3a8;
+  --solarized-base1:     #93a1a1;
+  --solarized-fg:        #657b83;
+  --solarized-emph:      #586e75;
 
-  /* Palette — normal */
-  --light-owl-black: #403F53;
-  --light-owl-red: #DE3D3B;
-  --light-owl-green: #08916A;
-  --light-owl-yellow: #E0AF02;
-  --light-owl-blue: #288ED7;
-  --light-owl-purple: #D6438A;
-  --light-owl-cyan: #2AA298;
-  --light-owl-white: #F0F0F0;
-
-  /* Palette — bright */
-  --light-owl-bright-black: #403F53;
-  --light-owl-bright-red: #DE3D3B;
-  --light-owl-bright-green: #08916A;
-  --light-owl-bright-yellow: #DAA011;
-  --light-owl-bright-blue: #288ED7;
-  --light-owl-bright-purple: #D6438A;
-  --light-owl-bright-cyan: #2AA298;
-  --light-owl-bright-white: #979797;
+  /* Accent colors */
+  --solarized-yellow:    #b58900;
+  --solarized-orange:    #cb4b16;
+  --solarized-red:       #dc322f;
+  --solarized-magenta:   #d33682;
+  --solarized-violet:    #6c71c4;
+  --solarized-blue:      #268bd2;
+  --solarized-cyan:      #2aa198;
+  --solarized-green:     #859900;
 
   /* Semantic */
-  --body-bg: var(--light-owl-bg);
-  --body-fg: var(--light-owl-fg);
+  --body-bg: var(--solarized-bg);
+  --body-fg: var(--solarized-fg);
 }
