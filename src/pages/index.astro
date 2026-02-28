@@ -71,7 +71,7 @@ const articles = [
         </p>
       </Section>
 
-      <Section title="last_updates" href="/posts" id="posts">
+      <Section title="last_updates" href="/blog" id="posts">
         <div class="articles-grid">
           {articles.map(article => (
             <ArticleCard {...article} />
@@ -79,7 +79,7 @@ const articles = [
         </div>
       </Section>
 
-      <Section title="projects" href="/projects" id="projects">
+      <Section title="projects" id="projects">
         {projects.map(project => (
           <ProjectCard {...project} />
         ))}
@@ -109,7 +109,6 @@ const articles = [
     border-style: solid;
     border-width: 0px 1px;
     color: var(--body-fg);
-    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
     font-size: 0.85rem;
     line-height: 1.75;
     margin: 0;
@@ -120,5 +119,27 @@ const articles = [
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  :global([data-theme="dark"]) main p {
+    color: var(--p-color);
+  }
+
+  @media (max-width: 1199px) {
+    .page-body {
+      flex-direction: column;
+    }
+
+    main {
+      border-left: none;
+      border-top: 1px solid var(--sidebar-border);
+      padding: 2rem 1rem;
+    }
+  }
+
+  @media (max-width: 779px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

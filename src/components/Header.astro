@@ -59,7 +59,9 @@
 
   function applyTheme(theme: string) {
     document.documentElement.setAttribute('data-theme', theme);
-    themeLabel.innerHTML = theme === 'dark' ? '&#9617;&#9618;&#9619; DARK' : '&#9619;&#9618;&#9617; LIGHT';
+    themeLabel.innerHTML = theme === 'dark' 
+      ? '&#9617;&#9618;&#9619; DARK' 
+      : '&#9619;&#9618;&#9617; LIGHT';
     themeToggle.classList.toggle('active', theme === 'light');
   }
 
@@ -72,86 +74,7 @@
     localStorage.setItem('theme', next);
     applyTheme(next);
   });
-
-  // VIM mode toggle: j/k to scroll
-  const vimToggle = document.getElementById('vim-toggle')!;
-  let vimMode = false;
-
-  vimToggle.addEventListener('click', () => {
-    vimMode = !vimMode;
-    vimToggle.classList.toggle('active', vimMode);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.key === 'V') {
-      e.preventDefault();
-      vimMode = !vimMode;
-      vimToggle.classList.toggle('active', vimMode);
-      return;
-    }
-
-    if (!vimMode) return;
-
-    const tag = (e.target as HTMLElement).tagName;
-
-    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-    if (e.key === 'j') window.scrollBy({ top: 60, behavior: 'smooth' });
-    if (e.key === 'k') window.scrollBy({ top: -60, behavior: 'smooth' });
-    if (e.key === 'g' && !e.shiftKey) window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (e.key === 'G') window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-  });
 </script>
-
-<style is:global>
-  :root,
-  [data-theme="dark"] {
-    --header-bg: var(--moonfly-bg);
-    --header-border: var(--moonfly-grey18);
-    --header-prompt-clock: var(--moonfly-blue);
-    --header-prompt-user: var(--moonfly-grey62);
-    --header-prompt-branch: var(--moonfly-green);
-    --header-prompt-dirty: var(--moonfly-red);
-    --header-prompt-project: var(--moonfly-turquoise);
-    --header-prompt-cursor: var(--moonfly-green);
-    --header-nav-color: var(--moonfly-grey70);
-    --header-nav-hover: var(--moonfly-white);
-    --header-hint-color: var(--moonfly-grey39);
-    --header-kbd-bg: var(--moonfly-grey18);
-    --header-kbd-border: var(--moonfly-grey30);
-    --header-kbd-color: var(--moonfly-orange);
-    --header-btn-bg: var(--moonfly-grey18);
-    --header-btn-border: var(--moonfly-grey30);
-    --header-btn-color: var(--moonfly-grey70);
-    --header-btn-hover-bg: var(--moonfly-grey23);
-    --header-btn-hover-fg: var(--moonfly-white);
-    --header-btn-active: var(--moonfly-sky);
-    --header-vim-btn-active: var(--moonfly-green);
-  }
-
-  [data-theme="light"] {
-    --header-bg: var(--solarized-bg);
-    --header-border: var(--solarized-selection);
-    --header-prompt-clock: var(--solarized-blue);
-    --header-prompt-user: var(--solarized-base1);
-    --header-prompt-branch: var(--solarized-green);
-    --header-prompt-dirty: var(--solarized-red);
-    --header-prompt-project: var(--solarized-cyan);
-    --header-prompt-cursor: var(--solarized-base1);
-    --header-nav-color: var(--solarized-fg);
-    --header-nav-hover: var(--solarized-blue);
-    --header-hint-color: var(--solarized-base1);
-    --header-kbd-bg: var(--solarized-selection);
-    --header-kbd-border: var(--solarized-border);
-    --header-kbd-color: var(--solarized-yellow);
-    --header-btn-bg: var(--solarized-selection);
-    --header-btn-border: var(--solarized-border);
-    --header-btn-color: var(--solarized-fg);
-    --header-btn-hover-bg: var(--solarized-hover);
-    --header-btn-hover-fg: var(--solarized-fg);
-    --header-btn-active: var(--solarized-blue);
-    --header-vim-btn-active: var(--solarized-green);
-  }
-</style>
 
 <style>
   .site-header {
