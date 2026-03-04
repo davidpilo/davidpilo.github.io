@@ -84,6 +84,44 @@
   --header-btn-hover-fg: var(--moonfly-white);
   --header-btn-active: var(--moonfly-sky);
   --header-vim-btn-active: var(--moonfly-green);
+
+  /* ArticleCard */
+  --card-bg: var(--moonfly-grey11);
+  --card-border: var(--moonfly-grey18);
+  --card-title: var(--moonfly-sky);
+  --card-date-label: var(--moonfly-grey39);
+  --card-date-value: var(--moonfly-yellow);
+  --card-excerpt: var(--moonfly-grey70);
+  --card-line-num: var(--moonfly-grey39);
+  --card-link: var(--moonfly-turquoise);
+
+  /* ProjectCard */
+  --project-card-bg: var(--moonfly-grey11);
+  --project-card-border: var(--moonfly-grey18);
+  --project-title: var(--moonfly-sky);
+  --project-description: var(--moonfly-grey70);
+  --project-link: var(--moonfly-turquoise);
+  --project-link-prefix: var(--moonfly-grey39);
+
+  /* Article (blog post) */
+  --article-header-bg: var(--moonfly-grey15);
+  --article-border: var(--moonfly-grey18);
+  --article-path-bg: var(--moonfly-grey18);
+  --article-path-color: var(--moonfly-grey70);
+  --article-meta-color: var(--moonfly-grey39);
+  --article-fm-bg: var(--moonfly-grey15);
+  --article-fm-accent: var(--moonfly-green);
+  --article-fm-key: var(--moonfly-grey50);
+  --article-fm-string: var(--moonfly-green);
+  --article-fm-date: var(--moonfly-sky);
+  --article-h1: var(--moonfly-white);
+  --article-h2: var(--moonfly-turquoise);
+  --article-blockquote-border: var(--moonfly-grey35);
+  --article-blockquote-bg: var(--moonfly-grey15);
+  --article-blockquote-color: var(--moonfly-grey58);
+  --article-hr: var(--moonfly-grey23);
+  --article-nav-link: var(--moonfly-sky);
+  --article-vim-footer: var(--moonfly-grey39);
 }
 
 /* Solarized Light — http://ethanschoonover.com/solarized */
@@ -137,4 +175,42 @@
   --header-btn-hover-fg: var(--solarized-fg);
   --header-btn-active: var(--solarized-blue);
   --header-vim-btn-active: var(--solarized-green);
+
+  /* ArticleCard */
+  --card-bg: var(--solarized-selection);
+  --card-border: var(--solarized-border);
+  --card-title: var(--solarized-blue);
+  --card-date-label: var(--solarized-base1);
+  --card-date-value: var(--solarized-yellow);
+  --card-excerpt: var(--solarized-fg);
+  --card-line-num: var(--solarized-base1);
+  --card-link: var(--solarized-cyan);
+
+  /* ProjectCard */
+  --project-card-bg: var(--solarized-selection);
+  --project-card-border: var(--solarized-border);
+  --project-title: var(--solarized-blue);
+  --project-description: var(--solarized-fg);
+  --project-link: var(--solarized-cyan);
+  --project-link-prefix: var(--solarized-base1);
+
+  /* Article (blog post) */
+  --article-header-bg: var(--solarized-selection);
+  --article-border: var(--solarized-border);
+  --article-path-bg: var(--solarized-hover);
+  --article-path-color: var(--solarized-fg);
+  --article-meta-color: var(--solarized-base1);
+  --article-fm-bg: var(--solarized-selection);
+  --article-fm-accent: var(--solarized-green);
+  --article-fm-key: var(--solarized-base1);
+  --article-fm-string: var(--solarized-green);
+  --article-fm-date: var(--solarized-blue);
+  --article-h1: var(--solarized-emph);
+  --article-h2: var(--solarized-cyan);
+  --article-blockquote-border: var(--solarized-border);
+  --article-blockquote-bg: var(--solarized-selection);
+  --article-blockquote-color: var(--solarized-base1);
+  --article-hr: var(--solarized-border);
+  --article-nav-link: var(--solarized-blue);
+  --article-vim-footer: var(--solarized-base1);
 }

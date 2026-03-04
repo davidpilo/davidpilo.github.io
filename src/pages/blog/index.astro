@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Section from '../../components/Section.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const articles = (await getCollection('blog'))
+  .sort((a, b) => b.data.date - a.data.date)
+  .map(({ body, data, slug }) => ({
+    date: data.date,
+    excerpt: `${body.substring(0, 180)}...`,
+    href: `/blog/post/${slug}`,
+    title: data.title
+  }));
+---
+
+<MainLayout title="David Pilo's Blog">
+  <Header promptDir="blog" />
+  <div class="page-body">
+    <Sidebar />
+    <main>
+      <Section title="posts">
+        <div class="articles-grid">  
+          {articles.map(article => (
+            <ArticleCard {...article} />
+          ))}
+        </div>
+      </Section>
+    </main>
+  </div>
+</MainLayout>
+
+<style>
+  .page-body {
+    display: flex;
+    margin: 0 auto;
+    max-width: 72rem;
+    min-height: calc(100vh - 4.05rem);
+  }
+
+  main {
+    border-left: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2.5rem;
+    padding: 2rem 2.5rem;
+  }
+
+  main p {
+    border-color: var(--section-line);
+    border-style: solid;
+    border-width: 0px 1px;
+    color: var(--body-fg);
+    font-size: 0.85rem;
+    line-height: 1.75;
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  .articles-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :global([data-theme="dark"]) main p {
+    color: var(--p-color);
+  }
+
+  @media (max-width: 1199px) {
+    .page-body {
+      flex-direction: column;
+    }
+
+    main {
+      border-left: none;
+      border-top: 1px solid var(--sidebar-border);
+      padding: 2rem 1rem;
+    }
+  }
+
+  @media (max-width: 779px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

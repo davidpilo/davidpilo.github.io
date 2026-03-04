@@ -1,13 +1,14 @@
 ---
+const { promptDir = 'home' } = Astro.props;
 ---
 
-<header class="site-header">
+<header>
   <div class="header-left">
     <span id="prompt-clock">00:00:00</span>
     <span class="prompt-username">david-pilo</span>
     <div class="prompt-git">
-      <span class="prompt-project">
-        home ±
+      <span class="prompt-dir">
+        {promptDir} ±
       </span>
       <span class="prompt-branch">
         |main <span>✗</span>|→
@@ -18,23 +19,17 @@
   </div>
 
   <nav class="header-nav">
-    <a href="#bio">Bio</a>
-    <a href="#posts">Posts</a>
-    <a href="#projects">Projects</a>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/#projects">Projects</a>
   </nav>
 
   <div class="header-right">
-    <!--<span class="keybind-hint">
-      <kbd>Ctrl+V</kbd>
-      <span class="keybind-label">vim</span>
-    </span>-->
     <button id="theme-toggle" class="toggle-btn" title="Toggle theme">
-      <span class="toggle-label" id="theme-label">&#9617;&#9618;&#9619; DARK</span>
+      <span class="toggle-label active" id="theme-label">
+        &#9619;&#9618;&#9617; LIGHT
+      </span>
     </button>
-    <!--<button id="vim-toggle" class="toggle-btn vim-btn" title="Toggle VIM mode">
-      <span class="toggle-icon">&nu;</span>
-      <span class="toggle-label">VIM</span>
-    </button>-->
   </div>
 </header>
 
@@ -69,7 +64,7 @@
   applyTheme(savedTheme);
 
   themeToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') ?? 'dark';
+    const current = document.documentElement.getAttribute('data-theme') ?? 'light';
     const next = current === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', next);
     applyTheme(next);
@@ -77,15 +72,16 @@
 </script>
 
 <style>
-  .site-header {
+  header {
     align-items: center;
     background-color: var(--header-bg);
     border-bottom: 1px solid var(--header-border);
     display: flex;
+    flex-wrap: wrap;
     font-size: 0.89rem;
-    height: 4rem;
     justify-content: space-between;
-    padding: 0rem 1.25rem;
+    min-height: 5rem;
+    padding: 0 1.25rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -94,9 +90,9 @@
   .header-left {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     font-weight: 700;
     gap: 0.5rem;
-    white-space: nowrap;
   }
 
   #prompt-clock {
@@ -111,7 +107,7 @@
     display: flex;
   }
 
-  .prompt-project {
+  .prompt-dir {
     color: var(--header-prompt-project);
   }
 
@@ -217,9 +213,4 @@
     }
   }
 
-  @media (max-width: 679px) {
-    .site-header {
-      display: none;
-    }
-  }
 </style>

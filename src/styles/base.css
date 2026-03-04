@@ -1,0 +1,13 @@
+@import url('./themes.css');
+
+
+body {
+  background-color: var(--body-bg);
+  color: var(--body-fg);
+  font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+}
+
+p {
+  color: var(--p-color);
+}
+

@@ -7,44 +7,25 @@ interface Props {
 }
 
 const { date, excerpt, href, title } = Astro.props;
+
+const fmtDate = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+}).format(new Date(date));
 ---
 
 <article class="article-card">
   <a class="card-title" href={href}>{title}</a>
   <p class="card-date">
     <span class="card-date-label">date:</span>
-    <span class="card-date-value">{date}</span>
+    <span class="card-date-value">{fmtDate}</span>
   </p>
   <p class="card-excerpt">{excerpt}</p>
   <a class="card-read-more" href={href}>
     <span class="card-line-num">:0</span> Read more ↗
   </a>
 </article>
-
-<style is:global>
-  :root,
-  [data-theme="dark"] {
-    --card-bg: var(--moonfly-grey11);
-    --card-border: var(--moonfly-grey18);
-    --card-title: var(--moonfly-sky);
-    --card-date-label: var(--moonfly-grey39);
-    --card-date-value: var(--moonfly-yellow);
-    --card-excerpt: var(--moonfly-grey70);
-    --card-line-num: var(--moonfly-grey39);
-    --card-link: var(--moonfly-turquoise);
-  }
-
-  [data-theme="light"] {
-    --card-bg: var(--solarized-selection);
-    --card-border: var(--solarized-border);
-    --card-title: var(--solarized-blue);
-    --card-date-label: var(--solarized-base1);
-    --card-date-value: var(--solarized-yellow);
-    --card-excerpt: var(--solarized-fg);
-    --card-line-num: var(--solarized-base1);
-    --card-link: var(--solarized-cyan);
-  }
-</style>
 
 <style>
   .article-card {

@@ -3,6 +3,11 @@ import 'normalize.css';
 import '@fontsource-variable/jetbrains-mono';
 
 import '../styles/base.css';
+
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const { title, relatedPosts = [] } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,7 +24,7 @@ import '../styles/base.css';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 
-		<title>David Pilo</title>
+    <title>{`David Pilo's Blog | ${title}`}</title>
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://davidpilo.com/" />
@@ -34,6 +39,42 @@ import '../styles/base.css';
 		<meta name="twitter:image" content="https://davidpilo.com/favicon.png" />
 	</head>
 	<body>
-    <slot />
+    <Header promptDir="blog" />
+    <div class="page-body">
+      <Sidebar showBio={false} relatedPosts={relatedPosts} />
+      <main>
+        <slot />
+      </main>
+    </div>
 	</body>
 </html>
+
+<style is:global>
+  .page-body {
+    display: flex;
+    margin: 0 auto;
+    min-height: calc(100vh - 4.05rem);
+    max-width: 72rem;
+  }
+
+  main {
+    border-left: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 2rem 2.5rem;
+  }
+
+
+  @media (max-width: 1199px) {
+    .page-body {
+      flex-direction: column;
+    }
+
+    main {
+      border-left: none;
+      border-top: 1px solid var(--sidebar-border);
+      padding: 2rem 1rem;
+    }
+  }
+</style>

@@ -22,27 +22,6 @@ const { description, href, repo, title } = Astro.props;
   </div>
 </article>
 
-<style is:global>
-  :root,
-  [data-theme="dark"] {
-    --project-card-bg: var(--moonfly-grey11);
-    --project-card-border: var(--moonfly-grey18);
-    --project-title: var(--moonfly-sky);
-    --project-description: var(--moonfly-grey70);
-    --project-link: var(--moonfly-turquoise);
-    --project-link-prefix: var(--moonfly-grey39);
-  }
-
-  [data-theme="light"] {
-    --project-card-bg: var(--solarized-selection);
-    --project-card-border: var(--solarized-border);
-    --project-title: var(--solarized-blue);
-    --project-description: var(--solarized-fg);
-    --project-link: var(--solarized-cyan);
-    --project-link-prefix: var(--solarized-base1);
-  }
-</style>
-
 <style>
   .project-card {
     background-color: var(--project-card-bg);
