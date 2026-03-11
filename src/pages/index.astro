@@ -129,6 +129,10 @@ const articles = (await getCollection('blog'))
   }
 
   @media (max-width: 779px) {
+    main p {
+      padding: 0 1rem;
+    }
+
     .articles-grid {
       grid-template-columns: 1fr;
     }
