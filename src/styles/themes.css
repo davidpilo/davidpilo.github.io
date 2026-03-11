@@ -103,6 +103,12 @@
   --project-link: var(--moonfly-turquoise);
   --project-link-prefix: var(--moonfly-grey39);
 
+  /* Section */
+  --section-hash: var(--moonfly-grey39);
+  --section-title: var(--moonfly-turquoise);
+  --section-line: var(--moonfly-grey18);
+  --section-bio-border: var(--moonfly-grey27);
+
   /* Article (blog post) */
   --article-header-bg: var(--moonfly-grey15);
   --article-border: var(--moonfly-grey18);
@@ -193,6 +199,12 @@
   --project-description: var(--solarized-fg);
   --project-link: var(--solarized-cyan);
   --project-link-prefix: var(--solarized-base1);
+
+  /* Section */
+  --section-hash: var(--solarized-base1);
+  --section-title: var(--solarized-cyan);
+  --section-line: var(--solarized-selection);
+  --section-bio-border: var(--solarized-selection);
 
   /* Article (blog post) */
   --article-header-bg: var(--solarized-selection);

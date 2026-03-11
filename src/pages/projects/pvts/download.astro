@@ -1,0 +1,182 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+---
+
+<MainLayout>
+  <Header promptDir="projects/pvts/download" />
+  <div class="page-body">
+    <Sidebar />
+    <main>
+      <div class="content-header">
+        <h1>
+          <span class="section-hash">#</span>
+          <span class="section-title">pvts</span>
+        </h1>
+        <span class="section-line" aria-hidden="true"></span>
+        <ul>
+          <li>
+            <a href="/projects/pvts">
+              <span class="link-prefix">:</span>home ↗
+            </a>
+          </li>
+          <li>
+            <a href="/projects/pvts/download">
+              <span class="link-prefix">:</span>download ↗
+            </a>
+          </li>
+          <li>
+            <a href="/projects/pvts/language">
+              <span class="link-prefix">:</span>language ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <section class="download">
+        <h2>Download PVTS</h2>
+
+        <div class="download-item">
+          <p class="download-label">JAR executable</p>
+          <p class="download-desc">Requires the Java Runtime Environment (JRE) installed.</p>
+          <a href="https://github.com/davidpilo/pvts/blob/master/dist/0.243/PVTS.jar?raw=true" target="_blank">
+            <span class="link-prefix">:</span>download PVTS.jar ↗
+          </a>
+        </div>
+
+        <div class="download-item">
+          <p class="download-label">EXE executable</p>
+          <p class="download-desc">Runs on MS Windows XP and above.</p>
+          <a href="https://github.com/davidpilo/pvts/blob/master/dist/0.243/PVTS.exe?raw=true" target="_blank">
+            <span class="link-prefix">:</span>download PVTS.exe ↗
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</MainLayout>
+
+<style>
+  .page-body {
+    display: flex;
+    margin: 0 auto;
+    max-width: 72rem;
+  }
+
+  main {
+    border-left: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2.5rem;
+    height: calc(100vh - 9.5rem);
+    padding: 2rem 2.5rem;
+  }
+
+  .content-header {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  h1 {
+    align-items: center;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 400;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .section-hash {
+    color: var(--section-hash);
+  }
+
+  .section-title {
+    color: var(--section-title);
+    white-space: nowrap;
+  }
+
+  .section-line {
+    border-top: 1px solid var(--section-line);
+    flex: 1;
+  }
+
+  .content-header ul {
+    align-items: center;
+    display: flex;
+    font-size: 0.75rem;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: var(--project-link);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .link-prefix {
+    color: var(--project-link-prefix);
+  }
+
+  /* Download */
+  h2 {
+    color: var(--body-fg);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+  }
+
+  .download {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .download-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem 0;
+  }
+
+  .download-label {
+    color: var(--body-fg);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .download-desc {
+    color: var(--p-color);
+    font-size: 0.82rem;
+    margin: 0;
+  }
+
+  .download-item a {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 1199px) {
+    .page-body {
+      flex-direction: column;
+    }
+
+    main {
+      border-left: none;
+      border-top: 1px solid var(--sidebar-border);
+      padding: 2rem 1rem;
+    }
+  }
+</style>

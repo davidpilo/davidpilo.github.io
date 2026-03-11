@@ -1,0 +1,426 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+---
+
+<MainLayout>
+  <Header promptDir="projects/pvts/language" />
+  <div class="page-body">
+    <Sidebar />
+    <main>
+      <div class="content-header">
+        <h1>
+          <span class="section-hash">#</span>
+          <span class="section-title">pvts</span>
+        </h1>
+        <span class="section-line" aria-hidden="true"></span>
+        <ul class="nav">
+          <li>
+            <a href="/projects/pvts">
+              <span class="link-prefix">:</span>home ↗
+            </a>
+          </li>
+          <li>
+            <a href="/projects/pvts/download">
+              <span class="link-prefix">:</span>download ↗
+            </a>
+          </li>
+          <li>
+            <a href="/projects/pvts/language">
+              <span class="link-prefix">:</span>language ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <section class="language">
+        <h2>Supported Language</h2>
+
+        <div class="grammar">
+          <div class="grammar-rule">
+            <span class="rule-name">PROGRAM</span>
+            <ul>
+              <li><span class="rule-ref">DEF-OR-EXP</span> ...</li>
+            </ul>
+          </div>
+
+          <div class="grammar-rule">
+            <span class="rule-name">DEF-OR-EXP</span>
+            <ul>
+              <li><span class="rule-ref">DEFINITION</span></li>
+              <li><span class="rule-ref">EXPRESSION</span></li>
+            </ul>
+          </div>
+
+          <div class="grammar-rule">
+            <span class="rule-name">DEFINITION</span>
+            <ul>
+              <li><code>(<span class="kw">define</span> (<span class="rule-ref">NAME</span> <span class="rule-ref">NAME</span> ...) <span class="rule-ref">EXPRESSION</span>)</code></li>
+              <li><code>(<span class="kw">define</span> <span class="rule-ref">NAME</span> <span class="rule-ref">EXPRESSION</span>)</code></li>
+            </ul>
+          </div>
+
+          <div class="grammar-rule">
+            <span class="rule-name">EXPRESSION</span>
+            <ul>
+              <li><code>(<span class="kw">set!</span> <span class="rule-ref">NAME</span> <span class="rule-ref">EXPRESSION</span>)</code></li>
+              <li><code>(<span class="kw">lambda</span> (<span class="rule-ref">NAME</span> ...) <span class="rule-ref">EXPRESSION</span>)</code></li>
+              <li><code>(<span class="kw">let</span> ((<span class="rule-ref">NAME</span> <span class="rule-ref">EXPRESSION</span>) ...) <span class="rule-ref">EXPRESSION</span>)</code></li>
+              <li><code>(<span class="rule-ref">PRIM-OP</span> <span class="rule-ref">EXPRESSION</span> ...)</code></li>
+              <li><code>(<span class="kw">cond</span> (<span class="rule-ref">EXPRESSION</span> <span class="rule-ref">EXPRESSION</span>) ...)</code></li>
+              <li><code>(<span class="kw">cond</span> (<span class="rule-ref">EXPRESSION</span> <span class="rule-ref">EXPRESSION</span>) ... (<span class="kw">else</span> <span class="rule-ref">EXPRESSION</span>))</code></li>
+              <li><code>(<span class="kw">if</span> <span class="rule-ref">EXPRESSION</span> <span class="rule-ref">EXPRESSION</span> <span class="rule-ref">EXPRESSION</span>)</code></li>
+              <li><code>(<span class="kw">and</span> <span class="rule-ref">EXPRESSION</span> <span class="rule-ref">EXPRESSION</span> ...)</code></li>
+              <li><code>(<span class="kw">or</span> <span class="rule-ref">EXPRESSION</span> <span class="rule-ref">EXPRESSION</span> ...)</code></li>
+              <li><span class="rule-ref">NAME</span></li>
+              <li><code>'<span class="rule-ref">QUOTED</span></code></li>
+              <li><span class="rule-ref">NUMBER</span></li>
+              <li><span class="rule-ref">STRING</span></li>
+              <li><span class="rule-ref">CHARACTER</span></li>
+            </ul>
+          </div>
+
+          <div class="grammar-rule">
+            <span class="rule-name">NAME</span>
+            <ul>
+              <li>a sequence of keyboard characters not including: <code class="chars">space " , ' ` ( ) [ ] &#123; &#125; | ; #</code></li>
+            </ul>
+          </div>
+
+          <div class="grammar-rule">
+            <span class="rule-name">QUOTED</span>
+            <ul>
+              <li><span class="rule-ref">NAME</span></li>
+              <li><span class="rule-ref">NUMBER</span></li>
+              <li><span class="rule-ref">STRING</span></li>
+              <li><span class="rule-ref">CHARACTER</span></li>
+              <li><code>'<span class="rule-ref">QUOTED</span></code></li>
+            </ul>
+          </div>
+
+          <div class="grammar-rule">
+            <span class="rule-name">PRIM-OPs</span>
+
+            <div class="prim-group">
+              <p class="prim-category">Numbers: Integers, Reals</p>
+              <ul>
+                <li><code>*</code> <span class="sig">(num num num ... -&gt; num)</span></li>
+                <li><code>+</code> <span class="sig">(num num num ... -&gt; num)</span></li>
+                <li><code>-</code> <span class="sig">(num num ... -&gt; num)</span></li>
+                <li><code>/</code> <span class="sig">(num num num ... -&gt; num)</span></li>
+                <li><code>&lt;</code> <span class="sig">(real real real ... -&gt; boolean)</span></li>
+                <li><code>&lt;=</code> <span class="sig">(real real real ... -&gt; boolean)</span></li>
+                <li><code>=</code> <span class="sig">(num num num ... -&gt; boolean)</span></li>
+                <li><code>&gt;</code> <span class="sig">(real real real ... -&gt; boolean)</span></li>
+                <li><code>&gt;=</code> <span class="sig">(real real ... -&gt; boolean)</span></li>
+                <li><code>abs</code> <span class="sig">(real -&gt; real)</span></li>
+                <li><code>acos</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>asin</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>atan</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>ceiling</code> <span class="sig">(real -&gt; int)</span></li>
+                <li><code>cos</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>even?</code> <span class="sig">(integer -&gt; bool)</span></li>
+                <li><code>exp</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>expt</code> <span class="sig">(num num -&gt; num)</span></li>
+                <li><code>floor</code> <span class="sig">(real -&gt; int)</span></li>
+                <li><code>gcd</code> <span class="sig">(int int -&gt; int)</span></li>
+                <li><code>integer?</code> <span class="sig">(any -&gt; bool)</span></li>
+                <li><code>log</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>max</code> <span class="sig">(real real ... -&gt; real)</span></li>
+                <li><code>min</code> <span class="sig">(real real ... -&gt; real)</span></li>
+                <li><code>modulo</code> <span class="sig">(int int -&gt; int)</span></li>
+                <li><code>negative?</code> <span class="sig">(number -&gt; bool)</span></li>
+                <li><code>number?</code> <span class="sig">(any -&gt; boolean)</span></li>
+                <li><code>odd?</code> <span class="sig">(integer -&gt; bool)</span></li>
+                <li><code>positive?</code> <span class="sig">(number -&gt; bool)</span></li>
+                <li><code>real?</code> <span class="sig">(any -&gt; bool)</span></li>
+                <li><code>sin</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>sqrt</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>tan</code> <span class="sig">(num -&gt; num)</span></li>
+                <li><code>zero?</code> <span class="sig">(number -&gt; bool)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Booleans</p>
+              <ul>
+                <li><code>boolean?</code> <span class="sig">(any -&gt; boolean)</span></li>
+                <li><code>not</code> <span class="sig">(boolean -&gt; boolean)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Symbols</p>
+              <ul>
+                <li><code>symbol?</code> <span class="sig">(any -&gt; boolean)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Lists</p>
+              <ul>
+                <li><code>append</code> <span class="sig">((listof any) ... -&gt; (listof any))</span></li>
+                <li><code>car</code> <span class="sig">((cons Y (listof X)) -&gt; Y)</span></li>
+                <li><code>cdr</code> <span class="sig">((cons Y (listof X)) -&gt; (listof X))</span></li>
+                <li><code>caar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cadr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>caaar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>caadr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>caaaar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>caaadr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cadar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>caddr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cadaar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cadadr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>caadar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>caaddr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cdar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cddr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cdaar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cdadr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cdaaar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cdaadr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cddar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cdddr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cddaar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cddadr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>cdddar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cddddr</code> <span class="sig">((listof any) -&gt; (listof any))</span></li>
+                <li><code>caddar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cdadar</code> <span class="sig">((listof any) -&gt; any)</span></li>
+                <li><code>cons</code> <span class="sig">(X (listof X) -&gt; (listof X))</span></li>
+                <li><code>length</code> <span class="sig">(list -&gt; number)</span></li>
+                <li><code>list</code> <span class="sig">(any ... -&gt; (listof any))</span></li>
+                <li><code>list?</code> <span class="sig">(any -&gt; boolean)</span></li>
+                <li><code>member</code> <span class="sig">(any list -&gt; (union false list))</span></li>
+                <li><code>null?</code> <span class="sig">(any -&gt; boolean)</span></li>
+                <li><code>reverse</code> <span class="sig">(list -&gt; list)</span></li>
+                <li><code>set-car!</code> <span class="sig">((cons Y (listof X)) Y -&gt; void)</span></li>
+                <li><code>set-cdr!</code> <span class="sig">((cons Y (listof X)) (listof X) -&gt; void)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Characters</p>
+              <ul>
+                <li><code>char?</code> <span class="sig">(any -&gt; boolean)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Strings</p>
+              <ul>
+                <li><code>string?</code> <span class="sig">(any -&gt; boolean)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Misc</p>
+              <ul>
+                <li><code>eq?</code> <span class="sig">(any any -&gt; boolean)</span></li>
+                <li><code>equal?</code> <span class="sig">(any any -&gt; boolean)</span></li>
+                <li><code>eqv?</code> <span class="sig">(any any -&gt; boolean)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Higher-Order Functions</p>
+              <ul>
+                <li><code>apply</code> <span class="sig">((X-1 ... X-N -&gt; Y) X-1 ... X-i (list X-i+1 ... X-N) -&gt; Y)</span></li>
+                <li><code>for-each</code> <span class="sig">((any ... -&gt; any) (listof any) ... -&gt; void)</span></li>
+                <li><code>map</code> <span class="sig">((X ... -&gt; Z) (listof X) ... -&gt; (listof Z))</span></li>
+                <li><code>procedure?</code> <span class="sig">(any -&gt; boolean)</span></li>
+              </ul>
+            </div>
+
+            <div class="prim-group">
+              <p class="prim-category">Printing</p>
+              <ul>
+                <li><code>display</code> <span class="sig">(any -&gt; void)</span></li>
+                <li><code>newline</code> <span class="sig">(-&gt; void)</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</MainLayout>
+
+<style>
+  .page-body {
+    display: flex;
+    margin: 0 auto;
+    max-width: 72rem;
+  }
+
+  main {
+    border-left: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2.5rem;
+    padding: 2rem 2.5rem;
+  }
+
+  /* Content header */
+  .content-header {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  h1 {
+    align-items: center;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 400;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .section-hash { color: var(--section-hash); }
+  .section-title { color: var(--section-title); white-space: nowrap; }
+
+  .section-line {
+    border-top: 1px solid var(--section-line);
+    flex: 1;
+  }
+
+  ul.nav {
+    align-items: center;
+    display: flex;
+    font-size: 0.75rem;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: var(--project-link);
+    text-decoration: none;
+  }
+
+  a:hover { text-decoration: underline; }
+
+  .link-prefix { color: var(--project-link-prefix); }
+
+  /* Language section */
+  h2 {
+    color: var(--body-fg);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+  }
+
+  .language {
+    padding-bottom: 2rem;
+  }
+
+  /* Grammar rules */
+  .grammar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .grammar-rule {
+    padding-left: 0;
+  }
+
+  .rule-name {
+    color: var(--body-fg);
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .grammar-rule > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .grammar-rule > ul > li {
+    color: var(--p-color);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .rule-ref {
+    color: var(--article-h2);
+    font-weight: 700;
+  }
+
+  .kw {
+    color: var(--article-fm-accent);
+  }
+
+  code {
+    color: var(--p-color);
+    font-size: 0.82rem;
+  }
+
+  .chars {
+    color: var(--article-fm-string);
+  }
+
+  /* Prim-ops */
+  .prim-group {
+    margin-top: 1rem;
+  }
+
+  .prim-category {
+    color: var(--body-fg);
+    font-size: 0.78rem;
+    font-style: italic;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+  }
+
+  .prim-group ul {
+    columns: 2;
+    gap: 0.5rem 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .prim-group ul li {
+    break-inside: avoid;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .prim-group ul li code {
+    color: var(--project-title);
+    font-weight: 700;
+  }
+
+  .sig {
+    color: var(--p-color);
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 1199px) {
+    .page-body { flex-direction: column; }
+
+    main {
+      border-left: none;
+      border-top: 1px solid var(--sidebar-border);
+      padding: 2rem 1rem;
+    }
+  }
+
+  @media (max-width: 779px) {
+    .prim-group ul { columns: 1; }
+  }
+</style>

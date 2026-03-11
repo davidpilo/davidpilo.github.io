@@ -16,28 +16,10 @@ const { title, href, id } = Astro.props;
   </div>
 </section>
 
-<style is:global>
-  :root,
-  [data-theme="dark"] {
-    --section-hash: var(--moonfly-grey39);
-    --section-title: var(--moonfly-turquoise);
-    --section-line: var(--moonfly-grey18);
-    --section-bio-border: var(--moonfly-grey27);
-  }
-
-  [data-theme="light"] {
-    --section-hash: var(--solarized-base1);
-    --section-title: var(--solarized-cyan);
-    --section-line: var(--solarized-selection);
-    --section-bio-border: var(--solarized-selection);
-  }
-</style>
-
 <style>
   .section {
     display: flex;
     flex-direction: column;
-    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
     gap: 1.25rem;
   }
 

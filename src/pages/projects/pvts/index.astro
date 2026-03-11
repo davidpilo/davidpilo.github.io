@@ -1,0 +1,463 @@
+---
+import { Image } from 'astro:assets';
+
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+
+import quicksortExHomeImg from '../../../images/pvts/quicksort-example-home.png';
+import listExImg from '../../../images/pvts/list-example.png';
+import callsExImg from '../../../images/pvts/calls-example.png';
+import envExImg from '../../../images/pvts/environment-example.png';
+import fibExImg from '../../../images/pvts/fibonacci-4.png';
+import competeExImg from '../../../images/pvts/pvts-compete-example-home.png';
+---
+
+<MainLayout>
+  <Header promptDir="projects/pvts" />
+  <div class="page-body">
+    <Sidebar/>
+    <main>
+      <div class="content-header">
+        <h1>
+          <span class="section-hash">#</span>
+          <span class="section-title">pvts</span>
+        </h1>
+        <span class="section-line" aria-hidden="true"></span>
+        <ul>
+          <li>
+            <a href="/projects/pvts">
+              <span class="link-prefix">:</span>home ↗
+            </a>
+          </li>
+          <li>
+            <a href="/projects/pvts/download">
+              <span class="link-prefix">:</span>download ↗
+            </a>
+          </li>
+          <li>
+            <a href="/projects/pvts/language">
+              <span class="link-prefix">:</span>language ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <section class="hero">
+        <h2>Ever wondered what the Quicksort Algorithm looks like?</h2>
+        <p>
+          Visualize lists, pointers and function calls in <strong>your code</strong>.
+          PVTS is a visual interpreter for the Scheme functional programming language.
+        </p>
+        <p>It is great for teachers and students as a supporting learning tool.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" id="btn-quicksort">
+            <span class="link-prefix">:</span>click here to see the answer →
+          </button>
+          <div class="hero-download">
+            <a class="btn-secondary" href="https://github.com/davidpilo/pvts/blob/master/dist/0.243/PVTS.jar?raw=true" target="_blank">
+              <span class="link-prefix">:</span>Or download PVTS.jar now from github.com ↗
+            </a> 
+          </div>
+        </div>
+        <p class="hero-note">
+          PVTS is an executable JAR file and requires the Java Runtime Environment (JRE).
+          <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Get it here.</a>
+        </p>
+      </section>
+
+      <dialog id="modal-quicksort">
+        <div class="modal-header">
+          <p class="modal-title">
+            This figure shows what coding and running the Quicksort algorithm for this list: <code>(5 22 13 1)</code> in PVTS:
+          </p>
+          <button class="modal-close" id="btn-close-modal"><span class="link-prefix">:</span>close ✕</button>
+        </div>
+        <div class="modal-body">
+          <Image
+            src={quicksortExHomeImg}
+            alt="Quicksort example"
+          />
+        </div>
+      </dialog>
+
+      <hr />
+
+      <section class="features">
+        <div class="feature">
+          <Image src={listExImg} alt="List example" />
+          <h2>Linked List Viewer</h2>
+          <p>PVTS will show you all the linked lists you have in your code. It will help you understand how pointers in linked-lists work.</p>
+        </div>
+        <div class="feature">
+          <Image src={callsExImg} alt="Calls example" />
+          <h2>Function Call Viewer</h2>
+          <p>Binary functions as Fibonacci are more easily understood visually. PVTS will draw the functions you defined and called.</p>
+        </div>
+        <div class="feature">
+          <Image src={envExImg} alt="Environment example" />
+          <h2>Environment Viewer</h2>
+          <p>Keep track of the variables and functions you have defined in the global environment. A list of these variables and functions is easily accessible to review them.</p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="example">
+        <div class="example-text">
+          <h2>Fibonacci Function Calls <span class="muted">example</span></h2>
+          <p>
+            The figure on the right is an example of running the code below in the PVTS visual
+            interpreter that demonstrates how the Fibonacci Algorithm works in a functional
+            programming environment.
+          </p>
+          <pre><code>; Lets define Fibonacci:
+(define (fib n)
+  (cond
+    ((= n 1) 1)
+    ((= n 0) 0)
+    (else (+ (fib (- n 1)) (fib (- n 2))))))
+
+; (fib 6) evaluates to
+(fib 6)</code></pre>
+        </div>
+        <Image src={fibExImg} alt="Fibonacci function calls example" />
+      </section>
+
+      <hr />
+
+      <section class="learn">
+        <h2>Let PVTS help you learn the basics of functional programming in Scheme.</h2>
+        <p>
+          Although Pilo Visual Tools for Scheme is a basic interpreter
+          (<a href="https://github.com/davidpilo/pvts" target="_blank">learn more about PVTS language support</a>),
+          anybody that is learning the basics of recursion or wants to enhance their understanding
+          of how pointers and lists work can benefit from giving this a try.
+        </p>
+        <Image src={competeExImg} alt="PVTS complete example" />
+      </section>
+
+      <hr />
+
+      <footer class="page-footer">
+        <a href="https://github.com/davidpilo/pvts" target="_blank">
+          <span class="link-prefix">:</span>Project site on github.com ↗
+        </a>
+        <a href="#top">
+          <span class="link-prefix">:</span>Back to top ↑
+        </a>
+      </footer>
+
+    </main>
+  </div>
+</MainLayout>
+
+<style>
+  .page-body {
+    display: flex;
+    margin: 0 auto;
+    max-width: 72rem;
+  }
+
+  main {
+    border-left: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2.5rem;
+    padding: 2rem 2.5rem;
+  }
+
+  .content-header {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .content-header h1 {
+    margin: 0;
+  }
+
+  .content-header ul {
+    align-items: center;
+    display: flex;
+    font-size: 0.75rem;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    align-items: center;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 400;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .section-hash {
+    color: var(--section-hash);
+  }
+
+  .section-title {
+    color: var(--section-title);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    border-top: 1px solid var(--section-line);
+    flex: 1;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0.75rem 0 0.5rem;
+    color: var(--body-fg);
+  }
+
+  p {
+    color: var(--p-color);
+    font-size: 0.85rem;
+    line-height: 1.75;
+    margin: 0 0 0.5rem;
+  }
+
+  a {
+    color: var(--project-link);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--sidebar-border);
+    margin: 0;
+  }
+
+  .hero {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.9rem;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-download {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: right;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0;
+  }
+
+  .btn-primary {
+    color: var(--project-title);
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    text-decoration: underline;
+  }
+
+  .btn-secondary {
+    color: var(--project-link);
+    font-weight: 400;
+  }
+
+  .hero-note {
+    font-size: 0.75rem;
+    color: var(--p-color);
+    margin-top: 0.25rem;
+  }
+
+  .link-prefix {
+    color: var(--project-link-prefix);
+  }
+
+  .features {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .feature img {
+    display: block;
+    height: 160px;
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .example {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 5fr 5fr;
+    align-items: center;
+  }
+
+  .example-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .example img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  pre {
+    background-color: var(--project-card-bg);
+    border: 1px solid var(--project-card-border);
+    border-radius: 4px;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    margin: 0.5rem 0 0;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  code {
+    font-family: inherit;
+  }
+
+  .muted {
+    color: var(--p-color);
+    font-weight: 400;
+  }
+
+  /* Learn */
+  .learn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .learn img {
+    display: block;
+    height: auto;
+    margin-top: 0.75rem;
+    width: 100%;
+  }
+
+  /* Modal */
+  dialog {
+    background-color: var(--project-card-bg);
+    border: 1px solid var(--project-card-border);
+    border-radius: 4px;
+    color: var(--body-fg);
+    font-size: 0.82rem;
+    max-width: 860px;
+    padding: 1.25rem;
+    width: 90vw;
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .modal-header {
+    align-items: flex-start;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .modal-title {
+    color: var(--p-color);
+    margin: 0;
+  }
+
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--project-link);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.82rem;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  .modal-close:hover {
+    text-decoration: underline;
+  }
+
+  .modal-body img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  /* Footer */
+  .page-footer {
+    display: flex;
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  @media (max-width: 1199px) {
+    .page-body {
+      flex-direction: column;
+    }
+
+    main {
+      border-left: none;
+      border-top: 1px solid var(--sidebar-border);
+      padding: 2rem 1rem;
+    }
+  }
+
+  @media (max-width: 779px) {
+    .features {
+      grid-template-columns: 1fr;
+    }
+
+    .example {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('modal-quicksort') as HTMLDialogElement;
+  document.getElementById('btn-quicksort')!.addEventListener('click', () => modal.showModal());
+  document.getElementById('btn-close-modal')!.addEventListener('click', () => modal.close());
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); });
+</script>

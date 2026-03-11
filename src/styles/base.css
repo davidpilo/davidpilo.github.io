@@ -1,6 +1,5 @@
 @import url('./themes.css');
 
-
 body {
   background-color: var(--body-bg);
   color: var(--body-fg);
@@ -10,4 +9,5 @@ body {
 p {
   color: var(--p-color);
 }
+
 
