@@ -31,32 +31,29 @@ const articles = (await getCollection('blog'))
 
 <MainLayout>
   <div class="page-body">
-    <Sidebar />
+    <Sidebar showBio={false} />
     <main>
       <Section title="bio" id="bio">
         <p>
-          I’m the founder and CEO of Walcu, a CRM and ILM
-          platform built specifically for auto dealers.
+          I’m the founder and CEO of Walcu, the CRM that 3,000 auto
+          dealers across 9 countries use to run their sales.
         </p>
         <p>
-          I studied Mathematics and Computer Science at Rollins
-          College and later earned a master’s degree in Operations 
-          Research from Cornell. I started my career at Microsoft 
-          as a Program Manager on the Excel team, where I worked on
-          making business intelligence tools easier for more people 
-          to use and helped ship Excel as a web app in Office 365.
+          I studied Mathematics and Computer Science at Rollins College
+          and earned a master’s in Operations Research from Cornell. I then
+          spent two years at Microsoft as a Program Manager on Excel, where
+          I helped ship Excel for the web.
         </p>
         <p>
-          After Microsoft, I moved into the automotive world as a 
-          Digital Strategist at Canalcar, a leading used car retailer. 
-          That shift gave me a front-row seat to the real challenges 
-          dealers face every day.
+          From there I moved into cars as a Digital Strategist at Canalcar,
+          a leading used car retailer. Up close, the gap was obvious: dealer
+          software was either well engineered or built for how dealers
+          actually work, never both. I started Walcu in 2019 to be both.
         </p>
         <p>
-          Bringing together my background in technology and my experience 
-          in automotive, I started Walcu to build the kind of CRM I wished 
-          dealers already had — powerful, practical, and actually designed 
-          for how the industry works.
+          Here I write about engineering and management. If that’s your
+          thing, follow me on <a class="bio-link" href="https://linkedin.com/in/david-pilo">LinkedIn</a>
+          or subscribe via <a class="bio-link" href="/blog/rss.xml">RSS</a>.
         </p>
       </Section>
 
@@ -78,6 +75,10 @@ const articles = (await getCollection('blog'))
 </MainLayout>
 
 <style>
+  .bio-link {
+    color: var(--section-title);
+  }
+
   .page-body {
     display: flex;
     margin: 0 auto;
