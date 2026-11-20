@@ -45,7 +45,12 @@ const links = [
     </div>
   </div>
 
-  
+  <nav class="site-nav">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/#projects">Projects</a>
+  </nav>
+
   {showBio && (
     <div class="terminal-cmd">
       <span class="cmd-prompt">$</span>
@@ -91,6 +96,8 @@ const links = [
     --sidebar-section-heading: var(--moonfly-grey58);
     --sidebar-bio-comment: var(--moonfly-green);
     --sidebar-slash-color: var(--moonfly-grey39);
+    --sidebar-nav-color: var(--moonfly-grey70);
+    --sidebar-nav-hover: var(--moonfly-white);
   }
 
   [data-theme="light"] {
@@ -104,6 +111,8 @@ const links = [
     --sidebar-section-heading: var(--solarized-base1);
     --sidebar-bio-comment: var(--solarized-green);
     --sidebar-slash-color: var(--solarized-base1);
+    --sidebar-nav-color: var(--solarized-fg);
+    --sidebar-nav-hover: var(--solarized-blue);
   }
 </style>
 
@@ -116,7 +125,7 @@ const links = [
     gap: 1.25rem;
     padding: 2.5rem 1rem;
     position: sticky;
-    top: 5.05rem;
+    top: 0;
     width: 280px;
   }
 
@@ -178,6 +187,21 @@ const links = [
     color: var(--sidebar-name-color);
   }
 
+  .site-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .site-nav a {
+    color: var(--sidebar-nav-color);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .site-nav a:hover {
+    color: var(--sidebar-nav-hover);
+  }
+
   ul {
     list-style: none;
     margin: 0;
@@ -216,7 +240,8 @@ const links = [
       display: none;
     }
 
-    .profile-card {
+    .profile-card,
+    .site-nav {
       width: 100%;
     }
 

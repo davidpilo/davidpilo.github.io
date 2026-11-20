@@ -4,7 +4,6 @@ import '@fontsource-variable/jetbrains-mono';
 
 import '../styles/base.css';
 
-import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
 
 const { title, relatedPosts = [] } = Astro.props;
@@ -39,7 +38,6 @@ const { title, relatedPosts = [] } = Astro.props;
 		<meta name="twitter:image" content="https://davidpilo.com/favicon.png" />
 	</head>
 	<body>
-    <Header promptDir="blog" />
     <div class="page-body">
       <Sidebar showBio={false} relatedPosts={relatedPosts} />
       <main>
@@ -53,7 +51,7 @@ const { title, relatedPosts = [] } = Astro.props;
   .page-body {
     display: flex;
     margin: 0 auto;
-    min-height: calc(100vh - 4.05rem);
+    min-height: 100vh;
     max-width: 72rem;
   }
 

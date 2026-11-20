@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 
 import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
 import Section from '../components/Section.astro';
 import ArticleCard from '../components/ArticleCard.astro';
@@ -31,7 +30,6 @@ const articles = (await getCollection('blog'))
 ---
 
 <MainLayout>
-  <Header />
   <div class="page-body">
     <Sidebar />
     <main>
