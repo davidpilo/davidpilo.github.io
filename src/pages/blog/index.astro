@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 
 import MainLayout from '../../layouts/MainLayout.astro';
-import Header from '../../components/Header.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import Section from '../../components/Section.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
@@ -18,7 +17,6 @@ const articles = (await getCollection('blog'))
 ---
 
 <MainLayout title="David Pilo's Blog">
-  <Header promptDir="blog" />
   <div class="page-body">
     <Sidebar />
     <main>
@@ -38,7 +36,7 @@ const articles = (await getCollection('blog'))
     display: flex;
     margin: 0 auto;
     max-width: 72rem;
-    min-height: calc(100vh - 4.05rem);
+    min-height: 100vh;
   }
 
   main {
