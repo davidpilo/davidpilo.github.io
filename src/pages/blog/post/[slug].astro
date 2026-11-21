@@ -1,4 +1,5 @@
 ---
+import { excerpt } from '../../../lib/excerpt.js';
 import { getCollection, render } from 'astro:content';
 
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
@@ -33,7 +34,7 @@ const relatedPosts = [prev, next]
   .map(p => ({
     title: p.data.title,
     date: p.data.date.toISOString(),
-    excerpt: `${p.body.substring(0, 120)}...`,
+    excerpt: excerpt(p.body, 120),
     href: `/blog/post/${p.slug}`,
   }));
 ---

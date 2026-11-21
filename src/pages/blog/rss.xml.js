@@ -1,3 +1,4 @@
+import { excerpt } from '../../lib/excerpt.js';
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
@@ -11,7 +12,7 @@ export async function GET(ctx) {
     items: blog.map(({ id, data, body }) => ({
       title: data.title,
       pubDate: data.date,
-      description: `${body.substring(0, 200).trim()}...`,
+      description: excerpt(body, 200),
       link: `/blog/post/${id}`
     }))
   });
