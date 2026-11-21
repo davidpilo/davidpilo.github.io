@@ -22,9 +22,9 @@ const fmtDate = new Intl.DateTimeFormat('en-US', {
     <span class="card-date-value">{fmtDate}</span>
   </p>
   <p class="card-excerpt">{excerpt}</p>
-  <a class="card-read-more" href={href}>
+  <span class="card-read-more" aria-hidden="true">
     <span class="card-line-num">:0</span> Read more ↗
-  </a>
+  </span>
 </article>
 
 <style>
@@ -37,6 +37,28 @@ const fmtDate = new Intl.DateTimeFormat('en-US', {
     font-size: 0.82rem;
     gap: 0.5rem;
     padding: 1rem;
+    position: relative;
+    transition: border-color 0.15s;
+  }
+
+  .article-card:hover {
+    border-color: var(--card-link);
+  }
+
+  /* Stretch the title link over the whole card */
+  .card-title::after {
+    content: '';
+    inset: 0;
+    position: absolute;
+  }
+
+  .card-title:focus-visible {
+    outline: none;
+  }
+
+  .article-card:has(.card-title:focus-visible) {
+    outline: 2px solid var(--card-link);
+    outline-offset: 2px;
   }
 
   .card-title {
@@ -46,7 +68,7 @@ const fmtDate = new Intl.DateTimeFormat('en-US', {
     text-decoration: none;
   }
 
-  .card-title:hover {
+  .article-card:hover .card-title {
     text-decoration: underline;
   }
 
@@ -76,7 +98,7 @@ const fmtDate = new Intl.DateTimeFormat('en-US', {
     text-decoration: none;
   }
 
-  .card-read-more:hover {
+  .article-card:hover .card-read-more {
     text-decoration: underline;
   }
 
