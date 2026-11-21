@@ -1,6 +1,6 @@
 ---
 title: "We Are an AI-Second Company"
-date: 2026-08-21
+date: 2026-07-26
 ---
 
 *We are an AI-second company—and we don’t lead with AI.*
