@@ -2,7 +2,7 @@
 interface Props {
   description: string;
   href: string;
-  repo: string;
+  repo?: string;
   title: string;
 }
 
@@ -16,9 +16,11 @@ const { description, href, repo, title } = Astro.props;
     <a class="project-link" href={href}>
       <span class="link-prefix">:</span>open ↗
     </a>
-    <a class="project-link" href={repo}>
-      <span class="link-prefix">:</span>repo ↗
-    </a>
+    {repo && (
+      <a class="project-link" href={repo}>
+        <span class="link-prefix">:</span>repo ↗
+      </a>
+    )}
   </div>
 </article>
 
